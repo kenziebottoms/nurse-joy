@@ -10,8 +10,3 @@ module.exports.getPokemonById = id =>
       sprites: { default: sprites.front_default, shiny: sprites.front_shiny }
     };
   });
-
-module.exports.getSpriteById = (id, shiny) =>
-  this.getPokemonById(id).then(({ sprites }) =>
-    shiny ? sprites.shiny : sprites.default
-  );

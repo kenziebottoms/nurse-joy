@@ -1,6 +1,8 @@
-// const mongoose = require("mongoose");
+require("dotenv").config();
+
+const mongoose = require("mongoose");
 const express = require("express");
-var cors = require("cors");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 
@@ -9,17 +11,17 @@ const app = express();
 app.use(cors());
 
 // this is our MongoDB database
-// const dbRoute = process.env.NODE_ENV;
+const dbRoute = process.env.DB;
 
 // connects our back end code with the database
-// mongoose.connect(dbRoute, { useNewUrlParser: true });
+mongoose.connect(dbRoute, { useNewUrlParser: true });
 
-// let db = mongoose.connection;
+let db = mongoose.connection;
 
-// db.once("open", () => console.log("connected to the database"));
+db.once("open", () => console.log("connected to the database"));
 
 // checks if connection with the database is successful
-// db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
