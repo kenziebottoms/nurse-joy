@@ -1,13 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 
-const {
-  checkAuthStrict,
-  getAuthUser,
-  register,
-  login,
-  logout
-} = require("../services/auth");
+const { getAuthUser, register, login, logout } = require("../services/auth");
 
 router.get("/", getAuthUser);
 
